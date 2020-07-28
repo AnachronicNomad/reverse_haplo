@@ -1,6 +1,9 @@
 files.md
 ======
 
+Key inputs/information/files provided to the executable. 
+------
+
 There are 4 required arguments for inputs, one recommended, and one optional. 
 
 1. **Haplotype** file `-h` (Required)
@@ -31,25 +34,32 @@ rs4030300   72515        A   C
 rs940550    78032        C   T
 ```
 
-3. **Map** file `-m`
+3. **Map** file `-m` (Required)
 
 Fine-scale recombination rates across region, from HapMap data? 
 
 ```bash
 $ head -n 5 ex.map 
-position COMBINED\_rate(cM/Mb) Genetic\_Map(cM)
+position COMBINED_rate(cM/Mb) Genetic_Map(cM)
 45413 -1 0
 558185 -1 0
 558390 -1 0
 711153 2.6858076690 0
 ```
 
-4. **Disease Loci** arguments
+Unclear docs here, but it looks like `-1` is an NA value for cumulative `COMBINED_rate(cM/Mb)` with corresponding `0` NA value for the `Genetic_Map` column. 
+
+`cM` is an acronym for centiMorgan, units of measure of distance in genetics.  `mB` is unclear, maybe related to "Mega base pairs".  There may be defined ranges/bounds for these types of measurements.  
+
+4. **Disease Loci** args `-dl` (Required - de facto)
 
 When simulating propagation of a genetic disease, we need to specify which disease SNP from our given haplotype/legend will act as the disease marker.  
+
+If not provided, then the software will run simulations of every SNP in haps/legend files.  
+
 Sets of 4 values can be arbitrarily specified after the flag.  This arg has the format 
 
-```bash
+```
 [ -dl {POSITION::integer} {ALLELE_ENC::binary} {RR1_HET::float} {RR2_HOM::float}, [POS ALLELE RR1 RR2, [...]] ]
 ```
 
@@ -78,3 +88,4 @@ where the components are:
 >
 > such that two disease SNPs are specified within the Legends file: 
 > The first at position `1085679`, with disease allele (any of {A|T|C|G}) in the `1` column of the legend, and risks RR1 and RR2 1.5 and 2.25, respectively.  The second disease SNP is at position `2190692` with base-pair allele in the `0` column with risks RR1 and RR2 of 2 and 4, respectively.  
+
