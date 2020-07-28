@@ -3,7 +3,7 @@ files.md
 
 There are 4 required arguments for inputs, one recommended, and one optional. 
 
-1. **Haplotype** file
+1. **Haplotype** file `-h` (Required)
 
 This file is a giant ${0|1}$ matrix.  Each row is a SNP (rsID), each column is a haplotype.
 
@@ -16,11 +16,11 @@ $ head -n 5 ex.haps
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 ```
 
-2. **Legend** file
+2. **Legend** file `-l` (Required)
 
 This file describes each row in the haplotypes file, indicating for each snip the rsID+BasePairPosition, and which allele in the base pair is represented by 0 or 1.  
 The alleles can be any of the nucleotides {A|C|T||G}, where A/T and C/G are mutually exclusive (they bond to each other).  
-However, either of the two base-pair alleles can be present, due to which strand is represented.
+However, either of the two base-pair alleles can be present, due to which strand is sequenced.
 
 ```bash
 $ head -n 5 ex.leg
@@ -31,7 +31,7 @@ rs4030300   72515        A   C
 rs940550    78032        C   T
 ```
 
-3. **Map** file
+3. **Map** file `-m`
 
 Fine-scale recombination rates across region, from HapMap data? 
 
