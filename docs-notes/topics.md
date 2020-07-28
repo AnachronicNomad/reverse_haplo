@@ -21,3 +21,5 @@ Discussed usability issues.
 
 4. Simulated sample size - Cases & Controls
 	- Need to provide ability to simulate a number of individuals as "All Cases"?
+
+5. They've set this up to only simulate a single chromosome at a time?
