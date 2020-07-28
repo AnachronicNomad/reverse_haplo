@@ -13,7 +13,7 @@ Discussed usability issues.
 	- Need to identify how the scaled mutation rate parameter may be specified for all use-cases. 
 	- Have to figure out how they're determining scale factors for using HAPMAP data. 
 
-3. Outputs
+3. Output data
 	- They'll provide a whole litany of output for the simulation, but it isn't fully clear what all information is truly captured/reported
 		+ (in edge cases in code, includes undocumented reporting capability)
 	- Needle in a haystack - what is it we actually need again? 
@@ -23,3 +23,6 @@ Discussed usability issues.
 	- Need to provide ability to simulate a number of individuals as "All Cases"?
 
 5. They've set this up to only simulate a single chromosome at a time?
+
+6. Output File Format
+	- it's supposed to work with everything else they've developed?  Specification of file format is a dead link. 
